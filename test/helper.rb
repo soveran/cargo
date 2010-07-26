@@ -2,8 +2,6 @@
 
 require File.join(File.dirname(__FILE__), "..", "lib", "cargo")
 
-AssertionFailed = Class.new(StandardError)
-
 def assert(value)
   return if value
 
