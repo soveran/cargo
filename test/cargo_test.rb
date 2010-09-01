@@ -1,7 +1,6 @@
 # encoding: UTF-8
 
 require File.join(File.dirname(__FILE__), "helper")
-require "ruby-debug"
 
 setup do
   unless defined?(Foo1)
