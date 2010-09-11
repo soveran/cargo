@@ -1,14 +1,14 @@
 # encoding: UTF-8
 
-require File.join(File.dirname(__FILE__), "helper")
+require File.join(".", "lib", "cargo")
 
 setup do
   unless defined?(Foo1)
-    Foo1 = import("foo-1.0.0")
+    Foo1 = import("test/foo-1.0.0")
   end
 
   unless defined?(Foo2)
-    Foo2 = import("foo-2.0.0")
+    Foo2 = import("test/foo-2.0.0")
   end
 end
 
@@ -40,5 +40,3 @@ end
 test "Foo2 should be possible" do
   assert "Hello" == Foo2.new.bar
 end
-
-puts " ✔ All tests passed"

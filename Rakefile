@@ -1,6 +1,7 @@
+require "cutest"
+
 task :test do
-  system "cd test && ruby cargo_test.rb"
-  exit $?.exitstatus
+  Cutest.run(Dir["test/*_test.rb"])
 end
 
 task :default => :test
