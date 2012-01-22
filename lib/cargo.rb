@@ -1,25 +1,21 @@
 module Cargo
-  VERSION = "0.0.1"
+  VERSION = "0.0.2"
 
-  def self.import(file)
+  def import(file)
     unless file.match(/\.rb$/)
       file = "#{file}.rb"
     end
 
     load(file, true)
 
-    @cargo
+    Thread.current[:cargo].tap do
+      Thread.current[:cargo] = nil
+    end
   end
 
-  def self.export(cargo)
-    @cargo = cargo
+  def export(cargo)
+    Thread.current[:cargo] = cargo
   end
 end
 
-def import(file)
-  Cargo.import(file)
-end
-
-def export(cargo)
-  Cargo.export(cargo)
-end
+include Cargo
