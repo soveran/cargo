@@ -18,4 +18,4 @@ module Cargo
   end
 end
 
-include Cargo
+extend Cargo
